@@ -8,6 +8,8 @@
 #original from http://wiki.ros.org/turtlesim/Tutorials/Moving%20in%20a%20Straight%20Line
 
 #this is a test change to see if GitHub and VSCode will update properly
+#this is a second test change, this time made in VSCode to see if my local repo in Ubuntu can see these changes...
+#...The first test change I made above was made from the Ubuntu local repo and then viewed in VSCode. 
 
 import rospy
 from geometry_msgs.msg import Twist
