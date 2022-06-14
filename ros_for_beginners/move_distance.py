@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
 
+#move_distance.py
+#moves the turtle a set distance, takes linear velocity, angular velocity, and distance from the command line
+
 #Credit to ch 5 of https://github.com/Apress/Robot-Operating-System-Abs-Begs for code
 #downloaded dean24-up 6/14/22
 #see p. 228 pdf of https://link.springer.com/content/pdf/10.1007/978-1-4842-7750-8.pdf for tutorial

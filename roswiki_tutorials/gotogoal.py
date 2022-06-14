@@ -1,7 +1,11 @@
 #!/usr/bin/env python
 #!/usr/bin/env python
 
-#downloaded from https://github.com/clebercoutof/turtlesim_cleaner/tree/master/src 6/13/22
+#gotogoal.py
+#moves turtle to specified x and y using Euclidean distance (I think, I can't say I totally understand this code)
+
+#code copied from https://github.com/clebercoutof/turtlesim_cleaner/tree/master/src 
+#downloaded 6/13/22 by dean24-up
 
 import rospy
 from geometry_msgs.msg import Twist
