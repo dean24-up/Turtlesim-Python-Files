@@ -7,6 +7,8 @@
 #Last modified dean24-up 6/13/22
 #original from http://wiki.ros.org/turtlesim/Tutorials/Moving%20in%20a%20Straight%20Line
 
+#this is a test change to see if GitHub and VSCode will update properly
+
 import rospy
 from geometry_msgs.msg import Twist
 
