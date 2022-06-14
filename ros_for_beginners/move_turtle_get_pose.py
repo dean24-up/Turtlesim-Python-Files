@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
 
+#move_turtle_get_pose.py
+#takes linear velocity and angular velocity from command line to move turtle until program terminated
+
 #Credit to ch 5 of https://github.com/Apress/Robot-Operating-System-Abs-Begs for code
 #downloaded dean24-up 6/13/22
 #see p. 225 pdf of https://link.springer.com/content/pdf/10.1007/978-1-4842-7750-8.pdf for tutorial

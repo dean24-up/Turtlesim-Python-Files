@@ -1,11 +1,13 @@
 #!/usr/bin/env python
-#same as move.py, but prompts user to move turtle again until told not to.
+
+#move_improved.py
+#repeatedly prompts user for speed, distance, and direction to move turtle
 #I added the while loop where I thought it would make sense, without really
 #knowing how it might affect ROS. It seems to work, but I had to comment out
 #the shutdown line.
 
+#original move.py from http://wiki.ros.org/turtlesim/Tutorials/Moving%20in%20a%20Straight%20Line and/or https://github.com/clebercoutof/turtlesim_cleaner
 #Last modified dean24-up 6/13/22
-#original from http://wiki.ros.org/turtlesim/Tutorials/Moving%20in%20a%20Straight%20Line
 
 #this is a test change to see if GitHub and VSCode will update properly
 #this is a second test change, this time made in VSCode to see if my local repo in Ubuntu can see these changes...

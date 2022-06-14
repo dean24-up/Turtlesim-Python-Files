@@ -1,9 +1,10 @@
 #!/usr/bin/env python
 
-#rotates until prompted not to, original rotate.py
-#Last modified dean24-up 6/13/22
-#from http://wiki.ros.org/turtlesim/Tutorials/Rotating%20Left%20and%20Right
+#rotate_improved.py
+#repeatedly prompts user to rotate the turtlebot through user input on speed and distance
 
+#original rotate.py from http://wiki.ros.org/turtlesim/Tutorials/Rotating%20Left%20and%20Right and/or ttps://github.com/clebercoutof/turtlesim_cleaner 
+#Last modified dean24-up 6/13/22
 
 import rospy
 from geometry_msgs.msg import Twist
