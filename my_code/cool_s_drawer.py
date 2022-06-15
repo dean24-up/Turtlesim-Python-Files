@@ -67,7 +67,8 @@ def rotate_turt(relative_angle):
        velocity_publisher.publish(vel)
        t1 = rospy.Time.now().to_sec()
        current_angle = ang_vel*(t1-t0)
-    vel.linear.z = 0
+    
+    vel.angular.z = 0
 
 def move_turt(lin_vel,distance):
     
