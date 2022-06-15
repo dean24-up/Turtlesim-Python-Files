@@ -4,19 +4,17 @@
 #draws a cool s once booted up. I wrote this because I thought it would be fun and I wanted to see if I could
 #piece together some basic turtlesim coding using the examples I've done.
 
-#this is kinda messy cuz I made it in vim and it doesnt use Pos, it just uses
-# time stuff. Thus, it doesn't get the angle right every time. So it looks like I'm
-#gonna have to use Pos and a subscriber and figure out how to read those values.
-#I'm commiting for now and coming back to fix it later
+#update using Pose data for angle calculations. Not sure if this will work.
 
 #I understand all but the syst import. From move_turtle_get_pose.py
 import rospy
 from geometry_msgs.msg import Twist
-#from turtlesim.msg import Pose <-- dunno if I need this, for position tracking
-#import syst
+from turtlesim.msg import Pose 
+import sys
 
 #global variables
 vel = Twist() #vairiable that encompasses linear and angular velocity
+pos = Pose() #variable that encompasses Turtle's pose
 PI = 3.14159265358979323846264338327950288419716939937510582097494459230781640628620899862803482
 
 #main function that draws the s
@@ -36,11 +34,6 @@ def draw_s():
     move_turt(2, 1)
 
 
-    #Twist setup
-    #to see the data fields associated with Twist, run:
-    #rosmsg show geometry_msgs Twist
-    
-
 #takes linear x  and distance as parameters, all other Twist fields are 0 for turtlesim purposes
 #this is more or less copied from move.py, I'm just making a separate function
 
@@ -49,7 +42,10 @@ def rotate_turt(relative_angle):
     relative_angle = relative_angle*2*PI/360 #conversion from degrees to radians
     ang_vel = 40 #ang_vel in degrees/sec
     ang_vel = ang_vel*2*PI/360
-    
+
+    #Twist setup
+    #to see the data fields associated with Twist, run:
+    #rosmsg show geometry_msgs Twist
     vel.linear.x = 0
     vel.linear.y = 0
     vel.linear.z = 0
@@ -60,15 +56,27 @@ def rotate_turt(relative_angle):
 
     #Setting the current time for distance calculus
     t0 = rospy.Time.now().to_sec()
-    current_angle = 0
+    starting_angle = pos.theta #changed this from 0
 
     #rotate turtle until matches correct angle
-    while (current_angle <= relative_angle):
-       velocity_publisher.publish(vel)
-       t1 = rospy.Time.now().to_sec()
-       current_angle = ang_vel*(t1-t0)
+
+    #while the current position of the turtle is less than the difference
+    #between the original angle and the final angle (the difference is the
+    # relative angle), keep moving
+    while pos.theta < (relative_angle - starting_angle):
+        print(pos.theta)
+        velocity_publisher.publish(vel)
     
+    #original code for rotating the turtle using calculus
+    #while (current_angle <= relative_angle):
+    #   velocity_publisher.publish(vel)
+    #   t1 = rospy.Time.now().to_sec()
+    #   current_angle = ang_vel*(t1-t0)
+    
+    #Stop the turtle
     vel.angular.z = 0
+    velocity_publisher.publish(vel)
+
 
 def move_turt(lin_vel,distance):
     
